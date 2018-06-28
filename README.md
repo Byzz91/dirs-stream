@@ -2,6 +2,10 @@
 
 `dirs-stream` is a library that search asynchrous directories reculsively.
 
+# NPM Repository
+
+[dirs-stream](https://www.npmjs.com/package/dirs-stream)
+
 # example
 
 ```js
