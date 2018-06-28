@@ -2,7 +2,7 @@
   "name": "puzzysearch",
   "version": "1.0.0",
   "description": "puzzy search for directories",
-  "repository": "https://github.com/Byzz91/puzzysearch.git",
+  "repository": "https://github.com/Byzz91/dirs-stream",
   "main": "src/index.js",
   "author": "byzz",
   "license": "MIT",
