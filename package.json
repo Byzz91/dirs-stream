@@ -2,19 +2,20 @@
   "name": "puzzysearch",
   "version": "1.0.0",
   "description": "puzzy search for directories",
-  "repository": {
-    "type": "github",
-    "url": "https://github.com/Byzz91/puzzysearch.git"
-  },
+  "repository": "https://github.com/Byzz91/puzzysearch.git",
   "main": "src/index.js",
   "author": "byzz",
   "license": "MIT",
   "dependencies": {
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
-    "stream": "^0.0.2"
+    "stream": "^0.0.2",
+    "util": "^0.11.0"
   },
   "devDependencies": {
     "eslint-config-google": "^0.9.1"
+  },
+  "scripts": {
+    "test": "mocha $(find test -name '*.test.js')"
   }
 }

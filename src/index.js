@@ -1,19 +1,36 @@
+/**
+ * PuzzySearch with Stream.Readable
+ * 
+ * @author byzz <eyedroot@gmail.com, byzz@inven.co.kr>
+ * @license MIT
+ */
 (function (factory) {
-  global.puzzySearch = typeof factory === 'function' ? factory() : new Error("Cannot find module factory");
-})(function () {
+  global.puzzySearch = (typeof factory === 'function') ? factory : new Error("Cannot find module factory");
+})(function (dir) {
   /**
-   * PuzzySearch 
-   * 
-   * @author eyedroot@gmail.com
-   * @license MIT
-   * 
+   * Factory
    */
   const fs = require('fs');
   const path = require('path');
+  const util = require('util');
   const Stream = require('stream');
+
   let publicObjects = {};
-  let Readable = new Stream.Readable();
   let lengthDirs = 1;
+  let streamable;
+
+  util.inherits(Streamer, Stream.Readable);
+
+  function Streamer(opt) {
+    Stream.Readable.call(this, opt);
+    this._index = 0;
+  }
+
+  Streamer.prototype._read = () => {
+    this._index++;
+  }
+
+  streamable = new Streamer();
 
   /**
    * walkAsync
@@ -21,7 +38,7 @@
    * @param String|Array path 
    * @usage require('puzzySearch').walkAsync('/usr/dev/')
    */
-  function walkAsync(dir) {
+  const walkAsync = (dir) => {
     dir = String(dir).trim();
 
     fs.readdir(dir, (error, files) => {
@@ -49,27 +66,23 @@
             lengthDirs++;
             walkAsync( fullpath );
           } else {
-            console.log(fullpath);
-            Readable.push( fullpath );
+            streamable.push(fullpath);
           }
         });
       });
     });
-  }
+  };
+
+  walkAsync(dir);
 
   /**
    * Public Objects
    */
-  publicObjects.dirWalk = walkAsync;
-  publicObjects.Stream = Readable;
+  publicObjects.Stream = streamable;
   return publicObjects;
 });
 
 /**
  * module.exports
  */
-// module.exports = global.puzzySearch;
-
-console.log(global.puzzySearch.Stream.pipe);
-global.puzzySearch.dirWalk("/Users/byzz/dev/puzzysearch");
-global.puzzySearch.Stream.push(null);
+module.exports = global.puzzySearch;
