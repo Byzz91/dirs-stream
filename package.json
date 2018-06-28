@@ -1,13 +1,17 @@
 {
   "name": "dirs-stream",
-  "version": "1.0.0",
-  "description": "puzzy search for directories",
-  "repository": "https://github.com/Byzz91/dirs-stream",
+  "version": "0.1.0",
+  "description": "dirs-stream is a library that search asynchrous directories reculsively.",
+  "repository": "https://github.com/Byzz91/dirs-stream.git",
   "main": "src/index.js",
-  "author": "byzz",
+  "author": {
+    "name": "byzz",
+    "email": "eyedroot@gmail.com",
+    "url": "http://mixcoffee.io/"
+  },
+  "contributors": [],
   "license": "MIT",
   "dependencies": {
-    "fs": "^0.0.1-security",
     "path": "^0.12.7",
     "stream": "^0.0.2",
     "util": "^0.11.0"
@@ -17,5 +21,11 @@
   },
   "scripts": {
     "test": "mocha $(find test -name '*.test.js')"
-  }
+  },
+  "keywords": [
+    "dirs",
+    "stream",
+    "directory",
+    "byzz"
+  ]
 }
