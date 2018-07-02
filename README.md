@@ -26,4 +26,4 @@ Stream.on('end', () => {
 
 if you have a question or else...
 
-mail to `eyedroot@gmail.com` and `byzz@inven.co.kr`
+mail to `eyedroot@gmail.com`
