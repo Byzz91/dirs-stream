@@ -1,6 +1,6 @@
 {
   "name": "dirs-stream",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "dirs-stream is a library that search asynchrous directories reculsively.",
   "repository": "https://github.com/Byzz91/dirs-stream.git",
   "main": "src/index.js",

@@ -1,12 +1,18 @@
-/**
- * PuzzySearch with Stream.Readable
- * 
- * @author byzz <eyedroot@gmail.com, byzz@inven.co.kr>
- * @license MIT
- */
-(function (factory) {
-  global.puzzySearch = (typeof factory === 'function') ? factory : new Error("Cannot find module factory");
-})(function (dir) {
+(function (root, factory) {
+  /**
+   * dirs-stream with Stream.Readable
+   * 
+   * @author byzz <eyedroot@gmail.com>
+   * @license MIT
+   */
+  if (typeof define === 'function' && define.amd) {
+    define([], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    module.exports = factory;
+  } else {
+    root.dirsStream = factory;
+  }
+})(this, function (dir) {
   /**
    * Factory
    */
@@ -64,7 +70,7 @@
 
           if (stats.isDirectory()) {
             lengthDirs++;
-            walkAsync( fullpath );
+            walkAsync(fullpath);
           } else {
             streamable.push(fullpath);
           }
@@ -81,8 +87,3 @@
   publicObjects.Stream = streamable;
   return publicObjects;
 });
-
-/**
- * module.exports
- */
-module.exports = global.puzzySearch;

@@ -1,6 +1,6 @@
 const puzzySearch = require('../src/index');
 
-let Stream = new puzzySearch("/Users/byzz/dev/puzzysearch").Stream;
+let Stream = new puzzySearch("/Users/byzz/dev/dirs-stream").Stream;
 
 Stream.on('data', (data) => {
   console.log(`Callback Data: ${ data }`);
